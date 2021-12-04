@@ -1,4 +1,6 @@
 import express from 'express';
+import axios from 'axios';
+
 const PORT = process.env.PORT || 80;
 
 const app = express();
@@ -12,7 +14,7 @@ app.get('/wordpress/', async (req, res, next) => {
     
     const wordpressResponse = await axios.post( 
         'https://wordpress.kodaktor.ru/wp-json/wp/v2/posts', 
-        { content, title: 'Aretm Avdzhiyan', status: 'publish' }, 
+        { content, title: 'wfrsnk', status: 'publish' }, 
         { 
             headers: { 
                 Authorization: `Bearer ${token}`, 
