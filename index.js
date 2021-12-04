@@ -1,5 +1,5 @@
 import express from 'express';
-
+import fetch from 'node-fetch';
 const PORT = process.env.PORT || 80;
 const user = {
     username: 'gossjsstudent2017',
