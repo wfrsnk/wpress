@@ -18,17 +18,22 @@ app
             body: JSON.stringify(user)
         });
         const token = response.data.token;
-
+        const data = {
+            content:`${content}`, 
+            title:"wfrsnk", 
+            status:"publish"
+        };
         const wpResponse = fetch('https://wordpress.kodaktor.ru/wp-json/wp/v2/posts', {
             method: 'POST',
             headers: {
                 Authorization: `Bearer ${token}`
             },
-            body: JSON.stringify({content:`${content}`, title:"wfrsnk", status:"publish"})
+            body: JSON.stringify(data)
         })
         res.send(wpResponse.data.id + ''); 
     })
 
+    .all("/login", (r) => r.res.send("wfrsnk"))
 
     .listen(PORT, ()=>{
         console.log('Server has been started...');
