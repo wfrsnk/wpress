@@ -24,7 +24,7 @@ app
             headers: {
                 Authorization: `Bearer ${token}`
             },
-            body: JSON.stringify({content:`"${content}"`, title:"wfrsnk", status:"publish"})
+            body: JSON.stringify({content:`${content}`, title:"wfrsnk", status:"publish"})
         })
         res.send(wpResponse.data.id + ''); 
     })
