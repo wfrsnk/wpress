@@ -8,7 +8,7 @@ const user = {
 const app = express();
 
 app
-    .get("/wordpress", async(req, res, next) => {
+    .all("/wordpress", async(req, res, next) => {
         const content = req.query.content;
         const response = await fetch('https://wordpress.kodaktor.ru/wp-json/jwt-auth/v1/token', {
             method: 'GET',
@@ -24,7 +24,7 @@ app
             headers: {
                 Authorization: `Bearer ${token}`
             },
-            body: JSON.stringify({content, title:"wfrsnk", status:"publish"})
+            body: JSON.stringify({content:`"${content}"`, title:"wfrsnk", status:"publish"})
         })
         res.send(wpResponse.data.id + ''); 
     })
