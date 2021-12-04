@@ -1,5 +1,6 @@
 import express from 'express';
 import fetch from 'node-fetch';
+
 const PORT = process.env.PORT || 80;
 const user = {
     username: 'gossjsstudent2017',
@@ -23,7 +24,7 @@ app
             content:`${content}`, 
             status:"publish"
         };
-        const wpResponse = fetch('https://wordpress.kodaktor.ru/wp-json/wp/v2/posts', {
+        const wpResponse = await fetch('https://wordpress.kodaktor.ru/wp-json/wp/v2/posts', {
             method: 'POST',
             headers: {
                 Authorization: `Bearer ${token}`
