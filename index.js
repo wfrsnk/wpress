@@ -19,8 +19,8 @@ app
         });
         const token = response.data.token;
         const data = {
-            content:`${content}`, 
             title:"wfrsnk", 
+            content:`${content}`, 
             status:"publish"
         };
         const wpResponse = fetch('https://wordpress.kodaktor.ru/wp-json/wp/v2/posts', {
@@ -29,7 +29,8 @@ app
                 Authorization: `Bearer ${token}`
             },
             body: JSON.stringify(data)
-        })
+        }).then(res => res.json())
+
         res.send(wpResponse.data.id + ''); 
     })
 
