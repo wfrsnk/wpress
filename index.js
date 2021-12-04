@@ -11,7 +11,7 @@ app
     .get("/wordpress", async(req, res, next) => {
         const content = req.query.content;
         const response = await fetch('https://wordpress.kodaktor.ru/wp-json/jwt-auth/v1/token', {
-            method: 'POST',
+            method: 'GET',
             headers: {
                 'Content-Type':'application/json;charset=utf-8'
             },
